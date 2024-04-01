@@ -22,6 +22,12 @@ namespace ERMM.GenericData.Items
             spRestored = stamina;
         }
 
+        public void SetTargetAndUse(GameObject targetObject)
+        {
+            target = targetObject.GetComponent<Character>();
+            Use();
+        }
+
         // Override the Use method
         public override void Use()
         {
