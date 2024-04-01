@@ -1,7 +1,7 @@
 # ERMM-UnityGameDev
 Repository for storing a common use source code to develop a game and its data structure. This source code is simple and free of guarantee it will work perfectly. Please use it at your own risks. 
 
-# Prospective Scope
+# 1. Prospective Scope - GenericData
 
 Basic Data Structure and Components to create a game
 The initial version should cover these following requirements
@@ -93,3 +93,27 @@ to realize your first prototype
 - Arc and Event Flags should be explored here
 
 For now, these milestones will be a prospective requirements.
+
+# 2. Prospective Scope - GenericController
+The subsections should demonstrate the overall input handler to control the basic character either 2D, 3D, and with different genre as much as possible.
+Here is the list of prospective module that should be added over time
+
+Since Unity provides new input system, the implementation seems to become more complex over a logic to control character.
+I suggested we strated from as basic as possible with the old input system as a template.
+Then deliver an alternative folder with the new input system integration.
+
+Old Input System Template
+**PC-1 PlayerController3DRigidbody**
+Basic Utility of movement in 3D world. Utilize a concept of Rigidbody
+The instruction to setup in Unity scene should be documented or comment inside the code
+    - Move with WASD with its front and right local space
+    - Move with WASD with the camera's front and right perspective
+    - An ability to control move speed with variety of mode of inputs
+        - Walk (Slower than normal run)
+        - Normal Run
+        - Dash
+    - An ability to Jump/doubleJump
+    - An ability to Crouch
+    - An ability to slowly rotate body of the visual character toward a movement direction
+    - An ability to hold movement speed to zero (in place) then rotate its body toward a direction of WASD or mouse Input positions
+
