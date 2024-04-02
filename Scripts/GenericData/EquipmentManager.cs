@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 namespace ERMM.GenericData
 {
@@ -65,6 +66,25 @@ namespace ERMM.GenericData
             // Revert stat modifications to character stats here
             // Example: this.hp -= item.statModifiers["hp"];
             // TODO:
+        }
+
+        // Print all equipped items
+        public void DisplayEquippedItems()
+        {
+            if (equippedItems.Count == 0)
+            {
+                Debug.Log("No items are currently equipped.");
+                return;
+            }
+
+            Debug.Log("Equipped Items:");
+            foreach (var itemEntry in equippedItems)
+            {
+                EquipmentSlot slot = itemEntry.Key;
+                EquipmentItem item = itemEntry.Value;
+                string modifiers = string.Join(", ", item.statModifiers.Select(mod => mod.Key + ": " + mod.Value));
+                Debug.Log($"Slot: {slot} - {item.itemName} ({item.identityTag}) [Modifiers: {modifiers}]");
+            }
         }
 
         #region Advance Features - TODO -
