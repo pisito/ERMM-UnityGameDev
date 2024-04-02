@@ -23,27 +23,30 @@ namespace ERMM.GenericData
         public Stats stats;
         public Inventory inventory;
         public EquipmentManager equipmentManager;
+        public Level level;
         #endregion
 
         public UnityEvent onDeath;
 
         #region Inspector Utility 
         // - via Menu Item : https://docs.unity3d.com/ScriptReference/MenuItem.html
-        [MenuItem("MyMenu/LinkComponents (%g)")]
+        [MenuItem("ERMM/Character/LinkComponents (%g)")]
         public static void LinkOptionalComponents()
         {
             Character myCharacter = Selection.activeTransform.gameObject.GetComponent<Character>() ;
             myCharacter.TryGetComponent<Stats>(out myCharacter.stats);
             myCharacter.TryGetComponent<Inventory>(out myCharacter.inventory);
             myCharacter.TryGetComponent<EquipmentManager>(out myCharacter.equipmentManager);
+            myCharacter.TryGetComponent<Level>(out myCharacter.level);
         }
-        [MenuItem("MyMenu/LinkComponents (%h)")]
+        [MenuItem("ERMM/Character/LinkComponents (%h)")]
         public static void LinkOptionalComponentsInChildren()
         {
             Character myCharacter = Selection.activeTransform.gameObject.GetComponent<Character>();
             myCharacter.stats = myCharacter.GetComponentInChildren<Stats>();
             myCharacter.inventory = myCharacter.GetComponentInChildren<Inventory>();
             myCharacter.equipmentManager = myCharacter.GetComponentInChildren<EquipmentManager>();
+            myCharacter.level = myCharacter.GetComponentInChildren<Level>();
         }
         #endregion
 
