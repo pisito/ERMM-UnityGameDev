@@ -18,5 +18,10 @@ namespace ERMM.GenericData.Utility
             get { return text; }
             set { text = value; }
         }
+
+        public bool compareIgnoreCase(string value)
+        {
+            return text.Equals(value, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

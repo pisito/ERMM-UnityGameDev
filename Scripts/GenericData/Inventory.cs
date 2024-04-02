@@ -2,6 +2,7 @@ using ERMM.GenericData.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace ERMM.GenericData
 {
@@ -31,6 +32,20 @@ namespace ERMM.GenericData
                 Debug.Log("The item was not found in the inventory.");
                 return false;
             }
+        }
+
+        public bool ContainItemName(string itemName, out Item theItem)
+        {
+            foreach (Item item in items)
+            {
+                if (item.itemName == itemName)
+                {
+                    theItem = item;
+                    return true;
+                }
+            }
+            theItem = null;
+            return false;
         }
 
         // Method to display all items in the inventory

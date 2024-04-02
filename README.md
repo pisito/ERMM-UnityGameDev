@@ -1,6 +1,9 @@
 # ERMM-UnityGameDev
-Repository for storing a common use source code to develop a game and its data structure. This source code is simple and free of guarantee it will work perfectly. Please use it at your own risks. 
+Repository for storing a common use source code to develop a game and its data structure.
+I believe these repository represent a fundamental study for those who want to develop their own game.
+This source code is simple and free of guarantee it will work perfectly. Please use it at your own risks. 
 Contact me for collaboration or merge request if interested.
+Author: Dr. Pisit Praiwattana
 Email: pisit.pra@mahidol.edu
 
 # 1. Prospective Scope - GenericData
