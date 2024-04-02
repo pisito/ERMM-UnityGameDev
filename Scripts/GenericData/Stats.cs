@@ -6,7 +6,7 @@ namespace ERMM.GenericData
 {
     public class Stats : MonoBehaviour
     {
-        // Attributes as per your requirements
+        // Attributes
         public int str = 10; // Strength
         public int intg = 10; // Intelligence, 'int' is a reserved keyword in C#, so we use 'intg' instead
         public int agi = 10; // Agility

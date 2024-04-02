@@ -4,14 +4,13 @@ namespace ERMM.GenericData
 {
     public enum ENUM_ItemType
     {
-        [DisplayText("Weapon")]
-        Weapon,
-        [DisplayText("Armor")]
-        Armor,
+        [DisplayText("Equipment")]
+        Equipment,
         [DisplayText("Consumable")]
         Consumable,
         [DisplayText("Quest")]
         Quest,
         [DisplayText("Misc")]
-        Misc }
+        Misc 
+    }
 }
