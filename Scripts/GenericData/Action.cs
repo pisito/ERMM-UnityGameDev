@@ -33,7 +33,7 @@ namespace ERMM.GenericData
         public bool CanPerform()
         {
             // No requirement
-            if (string.IsNullOrEmpty(requirement)) return true;
+            if (string.IsNullOrEmpty(requirement)) return false;
 
             // Example requirement check (could be expanded based on game's mechanics)
             return actor.GetComponent<Character>().HasRequirement(requirement);
