@@ -34,6 +34,8 @@ namespace ERMM.GenericController.Player3D
         bool isWalkMode;
         [SerializeField]
         bool isSprinting;
+        [SerializeField]
+        bool isCameraRotating;
 
         // Header Render Section Label in the inspector
         // It might prolong rebuilding time if you have mutilple public variable/ FYI
@@ -45,7 +47,9 @@ namespace ERMM.GenericController.Player3D
         // Header Render Section Label in the inspector
         // It might prolong rebuilding time if you have mutilple public variable/ FYI
         [Header("Rotation")]
-        public bool enableCameraRotation = false;
+        public bool enableRotateCamera = false;
+        public bool useCameraKey = false;
+        public KeyCode cameraRotationKey = KeyCode.Mouse1;
         public float cameraLookAngle;  // Camera Look Left/Right
         public float cameraPivotAngle; // Camera Look Up/Down
         public float cameraLookSpeed = 150f;
@@ -171,7 +175,7 @@ namespace ERMM.GenericController.Player3D
         {
 
             // Handle Look Input (Mouse)
-            if(enableCameraRotation)
+            if(isCameraRotating && enableRotateCamera)
             {
                 // Left / Right
                 cameraLookAngle += (invertX) ? -Input.GetAxis("Mouse X") : Input.GetAxis("Mouse X") * cameraLookSpeed * Time.deltaTime;
@@ -228,6 +232,29 @@ namespace ERMM.GenericController.Player3D
             {
                 isSprinting = false;
             }
+
+            // Handle Camera Rotation Key
+            // Usually Fire 2 refer to Mouse 1 // Right Mouse Button
+            if(enableRotateCamera)
+            {
+                if(useCameraKey)
+                {
+                    // Use Key hold to control rotation
+                    if (Input.GetKey(cameraRotationKey) && enableRotateCamera)
+                    {
+                        isCameraRotating = true;
+                    }
+                    else
+                    {
+                        isCameraRotating = false;
+                    }
+                }
+                else
+                {
+                    // Free Rotation
+                    isCameraRotating = true;
+                }
+            }         
         }
 
         private void HandleBodyRotation()
@@ -257,6 +284,8 @@ namespace ERMM.GenericController.Player3D
         void HandleCameraRotation()
         {
             if(cameraFollowTarget == null) return;
+
+            if (!isCameraRotating) return;
 
             Vector3 rotation = Vector3.zero;
             rotation.y = cameraLookAngle;
