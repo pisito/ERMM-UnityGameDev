@@ -6,30 +6,6 @@ Contact me for collaboration or merge request if interested.
 Author: Dr. Pisit Praiwattana
 Email: pisit.pra@mahidol.edu
 
-
-# 0. The flows
-
-**1.) General**
-representing basic implementation of foundation data and logic for the game development. It is concerning the preliminary design of the game element, so it is to be expected to get redesigned to match the specific of each target. We will remain its generic purpose in this package. Please expect to have a flaw or loop-hole in its usage at some speific demo.
-
-## DataStructure and Modules
-
-## GUIs
-
-## Interactions
-
-## PlayerController
-
-**2.) Framework Pipeline**
-representing a moudle or manager that representing the framework of game logic and pillar development
-
-## Manager and Utilities
-
-## Networks
-
-**3.) Working Demo**
-representing the working game project served as a sandbox and showcase for game development using or enhancing the generic modules in the package.
-
 # 1. Prospective Scope - GenericData
 
 Basic Data Structure and Components to create a game
