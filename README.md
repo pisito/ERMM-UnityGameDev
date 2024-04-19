@@ -11,10 +11,14 @@ Contact me for collaboration or merge request if interested.
 Author: Dr. Pisit Praiwattana
 
 Email: pisit.pra@mahidol.edu
-R
-epository: https://github.com/pisito/ERMM-UnityGameDev
+
+Repository: https://github.com/pisito/ERMM-UnityGameDev
 
 For the structure of the repository, I will separate them into a major pack as following:
+
+**Script**
+
+Scripts consists of functional code to develop a game components.
 
 # General
 
@@ -85,3 +89,7 @@ To make sure all of the components can be useful in developing game. We will pro
  - RPG
 
 The wiki page will be updated over time.
+
+**Asset**
+
+Git was not directly designed to host a large set of asset. However, basic functionality might be useful if there is a placeholder asset to be used
