@@ -9,6 +9,7 @@ Currently, I maintain it manually. Any helping hand to operate the documentation
 Contact me for collaboration or merge request if interested.
 Author: Dr. Pisit Praiwattana
 Email: pisit.pra@mahidol.edu
+Repository: https://github.com/pisito/ERMM-UnityGameDev
 
 For the structure of the repository, I will separate them into a major pack as following:
 
