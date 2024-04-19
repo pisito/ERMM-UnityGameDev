@@ -7,9 +7,12 @@ This source code is simple and free of guarantee it will work perfectly. Please 
 Currently, I maintain it manually. Any helping hand to operate the documentation will be grateful, feel free to contact me.
 
 Contact me for collaboration or merge request if interested.
+
 Author: Dr. Pisit Praiwattana
+
 Email: pisit.pra@mahidol.edu
-Repository: https://github.com/pisito/ERMM-UnityGameDev
+R
+epository: https://github.com/pisito/ERMM-UnityGameDev
 
 For the structure of the repository, I will separate them into a major pack as following:
 
