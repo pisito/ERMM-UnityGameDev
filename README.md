@@ -53,6 +53,8 @@ Consists of the general data structure and controller often being seen in multip
  + [PlayerAI]
 
 ## GenericDemo
+
+ - GenericDemoScene highlight the usage of generic data in general.
  
 # FrameworkTool
 
