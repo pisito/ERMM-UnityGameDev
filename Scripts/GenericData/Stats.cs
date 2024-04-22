@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ERMM.GenericData
 {
@@ -29,30 +30,48 @@ namespace ERMM.GenericData
         public int vit = 10; // Vitality
         public int mag = 10; // Magic
 
+        #region Events
+        public UnityEvent onStatUpdated;
+        #endregion
+
         // Methods to modify each stat
+        public void SetupStat(int str, int intg, int agi, int vit, int mag)
+        {
+            this.str = str;
+            this.intg = intg;
+            this.agi = agi;
+            this.vit = vit;
+            this.mag = mag;
+            HandleStatUpdated();
+        }
         public void ModifyStr(int amount)
         {
             str += amount;
+            HandleStatUpdated();
         }
 
         public void ModifyIntg(int amount)
         {
             intg += amount;
+            HandleStatUpdated();
         }
 
         public void ModifyAgi(int amount)
         {
             agi += amount;
+            HandleStatUpdated();
         }
 
         public void ModifyVit(int amount)
         {
             vit += amount;
+            HandleStatUpdated();
         }
 
         public void ModifyMag(int amount)
         {
             mag += amount;
+            HandleStatUpdated();
         }
 
         public int GetStatAttribute(StatAttribute attribute)
@@ -74,7 +93,7 @@ namespace ERMM.GenericData
             }
         }
 
-        public bool getStatAttribute(out int value, string attributeKey)
+        public bool GetStatAttribute(out int value, string attributeKey)
         {
             StatAttribute targetAttribute;
 
@@ -89,5 +108,12 @@ namespace ERMM.GenericData
                 return false;
             }    
         }
+
+        #region Event Invoke
+        void HandleStatUpdated()
+        {
+            onStatUpdated?.Invoke();
+        }
+        #endregion
     }
 }

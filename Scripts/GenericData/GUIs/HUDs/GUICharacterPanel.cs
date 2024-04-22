@@ -20,17 +20,6 @@ namespace ERMM.GenericData.GUIs.HUDs
         public TextMeshProUGUI spText;
         #endregion
 
-        #region Enable DisableHook
-        private void OnEnable()
-        {
-            Show();
-        }
-        private void OnDisable()
-        {
-            Hide();
-        }
-        #endregion
-
         public void RegisterCharacter(Character newCharacter)
         {
             myCharacter = newCharacter;
@@ -72,11 +61,11 @@ namespace ERMM.GenericData.GUIs.HUDs
         {
             if (myCharacter != null)
             {
-                avatarImage.sprite = myCharacter.avatarImage;
-                nameText.text = myCharacter.name;
-                hpText.text = "HP: " + myCharacter.hp + " / " + myCharacter.maxHp;
-                mpText.text = "MP: " + myCharacter.mp + " / " + myCharacter.maxMP;
-                spText.text = "SP: " + myCharacter.sp + " / " + myCharacter.maxSP;
+                UpdateAvatarImage();
+                UpdateName();
+                UpdateHP(0);
+                UpdateMP(0);
+                UpdateSP(0);
             }
         }
         public void UpdateName()

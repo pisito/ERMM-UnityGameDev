@@ -36,6 +36,8 @@ namespace ERMM.GenericData.GUIs
         // Unity Start method to set initial visibility based on isVisibleOnStart
         void Start()
         {
+            OnStart();
+
             if (isVisibleOnStart)
             {
                 Show();
@@ -45,6 +47,18 @@ namespace ERMM.GenericData.GUIs
                 Hide();
             }
         }
+
+        #region Enable DisableHook
+
+        private void OnEnable()
+        {
+            Show();
+        }
+        private void OnDisable()
+        {
+            Hide();
+        }
+        #endregion
 
         // Method to show the panel
         public void Show()
@@ -78,6 +92,8 @@ namespace ERMM.GenericData.GUIs
         // Virtual methods to be overridden in subclasses if additional actions are needed on show or hide
         protected virtual void OnShow() { }
         protected virtual void OnHide() { }
+
+        protected virtual void OnStart() {}
     }
 }
 

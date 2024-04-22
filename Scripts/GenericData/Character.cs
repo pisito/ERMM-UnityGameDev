@@ -62,10 +62,10 @@ namespace ERMM.GenericData
         public void ModifyHP(int amount)
         {
             hp = Mathf.Clamp(hp + amount, 0, maxHp);
-            handleHPUpdated(amount);
+            HandleHPUpdated(amount);
             if (IsDead)
             {
-                handleDeath();
+                HandleDeath();
             }
             
         }
@@ -74,14 +74,14 @@ namespace ERMM.GenericData
         public void ModifyMP(int amount)
         {
             mp = Mathf.Clamp(mp + amount, 0, maxMP);
-            handleMPUpdated(amount);
+            HandleMPUpdated(amount);
         }
 
         // Method to modify SP within its bounds (0 to maxSP)
         public void ModifySP(int amount)
         {
             sp = Mathf.Clamp(sp + amount, 0, maxSP);
-            handleSPUpdated(amount); 
+            HandleSPUpdated(amount); 
         }
 
         // Method to modify maxHp
@@ -90,7 +90,7 @@ namespace ERMM.GenericData
             maxHp += amount;
             if (maxHp < 0) maxHp = 0; // Ensure maxHp does not go below 0
             if (hp > maxHp) hp = maxHp; // Adjust current HP if it exceeds the new max
-            handleHPUpdated(amount);
+            HandleHPUpdated(amount);
         }
 
         // Method to modify maxMP
@@ -99,7 +99,7 @@ namespace ERMM.GenericData
             maxMP += amount;
             if (maxMP < 0) maxMP = 0; // Ensure maxMP does not go below 0
             if (mp > maxMP) mp = maxMP; // Adjust current MP if it exceeds the new max
-            handleMPUpdated(amount);
+            HandleMPUpdated(amount);
         }
 
         // Method to modify maxSP
@@ -108,7 +108,7 @@ namespace ERMM.GenericData
             maxSP += amount;
             if (maxSP < 0) maxSP = 0; // Ensure maxSP does not go below 0
             if (sp > maxSP) sp = maxSP; // Adjust current SP if it exceeds the new max
-            handleSPUpdated(amount);
+            HandleSPUpdated(amount);
         }
 
         #endregion
@@ -128,7 +128,7 @@ namespace ERMM.GenericData
             var parts = requirement.Split(':');
             int possibleStatValue;
             Item possibleItem;
-            if (parts.Length == 2 && stats.getStatAttribute(out possibleStatValue, parts[0]))
+            if (parts.Length == 2 && stats.GetStatAttribute(out possibleStatValue, parts[0]))
             {
                 // Checking if the character's stat meets or exceeds the required value
                 return possibleStatValue >= int.Parse(parts[1]);
@@ -151,24 +151,24 @@ namespace ERMM.GenericData
         }
         #endregion
 
-        #region Events
-        void handleDeath()
+        #region Event Invoke
+        void HandleDeath()
         {
             onDeath?.Invoke();
         }
-        void handleHPUpdated(int amount)
+        void HandleHPUpdated(int amount)
         {
             // Amount represent a changed value for modification
             // useful for creating a floating text
             onHPUpdated?.Invoke(amount);
         }
-        void handleMPUpdated(int amount)
+        void HandleMPUpdated(int amount)
         {
             // Amount represent a changed value for modification
             // useful for creating a floating text
             onMPUpdated?.Invoke(amount);
         }
-        void handleSPUpdated(int amount)
+        void HandleSPUpdated(int amount)
         {
             // Amount represent a changed value for modification
             // useful for creating a floating text

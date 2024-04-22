@@ -7,8 +7,8 @@ namespace ERMM.GenericData.Detects
 {
     public class DetectInteractableTrigger : MonoBehaviour
     {
-        public UnityEvent onInteractRangeEnter;
-        public UnityEvent onInteractRangeExit;
+        public UnityEvent<Collider> onInteractRangeEnter;
+        public UnityEvent<Collider> onInteractRangeExit;
         public string targetTag = "Interactable"; // Detect item that is interactable
         private void OnTriggerEnter(Collider other)
         {
@@ -16,7 +16,7 @@ namespace ERMM.GenericData.Detects
             if (other.gameObject.CompareTag(targetTag))
             {
                 Debug.Log("Enter Range of interactable object: " + other.gameObject.name);
-                onInteractRangeEnter?.Invoke();
+                onInteractRangeEnter?.Invoke(other);
             }
         }
 
@@ -31,7 +31,7 @@ namespace ERMM.GenericData.Detects
             if (other.gameObject.CompareTag(targetTag))
             {
                 Debug.Log("Exit Range of interactable object: " + other.gameObject.name);
-                onInteractRangeEnter?.Invoke();
+                onInteractRangeEnter?.Invoke(other);
             }
         }
     }
