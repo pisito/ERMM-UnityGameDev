@@ -20,13 +20,19 @@ namespace ERMM.GenericData
         public int maxSP = 10;
 
         #region Optional Components
+        public Sprite avatarImage;
         public Stats stats;
         public Inventory inventory;
         public EquipmentManager equipmentManager;
         public Level level;
         #endregion
 
+        #region Events
         public UnityEvent onDeath;
+        public UnityEvent<int> onHPUpdated;
+        public UnityEvent<int> onMPUpdated;
+        public UnityEvent<int> onSPUpdated;
+        #endregion
 
         #region Inspector Utility 
         // - via Menu Item : https://docs.unity3d.com/ScriptReference/MenuItem.html
@@ -56,7 +62,8 @@ namespace ERMM.GenericData
         public void ModifyHP(int amount)
         {
             hp = Mathf.Clamp(hp + amount, 0, maxHp);
-            if(IsDead)
+            handleHPUpdated(amount);
+            if (IsDead)
             {
                 handleDeath();
             }
@@ -67,12 +74,14 @@ namespace ERMM.GenericData
         public void ModifyMP(int amount)
         {
             mp = Mathf.Clamp(mp + amount, 0, maxMP);
+            handleMPUpdated(amount);
         }
 
         // Method to modify SP within its bounds (0 to maxSP)
         public void ModifySP(int amount)
         {
             sp = Mathf.Clamp(sp + amount, 0, maxSP);
+            handleSPUpdated(amount); 
         }
 
         // Method to modify maxHp
@@ -81,6 +90,7 @@ namespace ERMM.GenericData
             maxHp += amount;
             if (maxHp < 0) maxHp = 0; // Ensure maxHp does not go below 0
             if (hp > maxHp) hp = maxHp; // Adjust current HP if it exceeds the new max
+            handleHPUpdated(amount);
         }
 
         // Method to modify maxMP
@@ -89,6 +99,7 @@ namespace ERMM.GenericData
             maxMP += amount;
             if (maxMP < 0) maxMP = 0; // Ensure maxMP does not go below 0
             if (mp > maxMP) mp = maxMP; // Adjust current MP if it exceeds the new max
+            handleMPUpdated(amount);
         }
 
         // Method to modify maxSP
@@ -97,6 +108,7 @@ namespace ERMM.GenericData
             maxSP += amount;
             if (maxSP < 0) maxSP = 0; // Ensure maxSP does not go below 0
             if (sp > maxSP) sp = maxSP; // Adjust current SP if it exceeds the new max
+            handleSPUpdated(amount);
         }
 
         #endregion
@@ -143,6 +155,24 @@ namespace ERMM.GenericData
         void handleDeath()
         {
             onDeath?.Invoke();
+        }
+        void handleHPUpdated(int amount)
+        {
+            // Amount represent a changed value for modification
+            // useful for creating a floating text
+            onHPUpdated?.Invoke(amount);
+        }
+        void handleMPUpdated(int amount)
+        {
+            // Amount represent a changed value for modification
+            // useful for creating a floating text
+            onMPUpdated?.Invoke(amount);
+        }
+        void handleSPUpdated(int amount)
+        {
+            // Amount represent a changed value for modification
+            // useful for creating a floating text
+            onSPUpdated?.Invoke(amount);
         }
         #endregion
     }
