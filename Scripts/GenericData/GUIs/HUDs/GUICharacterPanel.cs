@@ -10,12 +10,25 @@ namespace ERMM.GenericData.GUIs.HUDs
     {
         [SerializeField]
         private Character myCharacter;
+        [Tooltip("Remove reference of character on disable or not")]
+        public bool removeCharOnDisable = false;
         #region GUI Components
         public Image avatarImage;
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI hpText;
         public TextMeshProUGUI mpText;
         public TextMeshProUGUI spText;
+        #endregion
+
+        #region Enable DisableHook
+        private void OnEnable()
+        {
+            Show();
+        }
+        private void OnDisable()
+        {
+            Hide();
+        }
         #endregion
 
         public void RegisterCharacter(Character newCharacter)
@@ -36,7 +49,7 @@ namespace ERMM.GenericData.GUIs.HUDs
                 myCharacter.onMPUpdated.RemoveListener(UpdateMP);
                 myCharacter.onSPUpdated.RemoveListener(UpdateSP);
             }
-            myCharacter = null;
+            if (removeCharOnDisable) myCharacter = null;
         }
 
         protected override void OnShow()
