@@ -36,7 +36,7 @@ namespace ERMM.GenericData
 
         #region Inspector Utility 
         // - via Menu Item : https://docs.unity3d.com/ScriptReference/MenuItem.html
-        [MenuItem("ERMM/Character/LinkComponents (%g)")]
+        [MenuItem("ERMM/Character/Link-RelatedComponents (%g)")]
         public static void LinkOptionalComponents()
         {
             Character myCharacter = Selection.activeTransform.gameObject.GetComponent<Character>() ;
@@ -45,7 +45,7 @@ namespace ERMM.GenericData
             myCharacter.TryGetComponent<EquipmentManager>(out myCharacter.equipmentManager);
             myCharacter.TryGetComponent<Level>(out myCharacter.level);
         }
-        [MenuItem("ERMM/Character/LinkComponents (%h)")]
+        [MenuItem("ERMM/Character/Link-RelatedInChildren (%h)")]
         public static void LinkOptionalComponentsInChildren()
         {
             Character myCharacter = Selection.activeTransform.gameObject.GetComponent<Character>();
