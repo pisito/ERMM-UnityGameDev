@@ -15,8 +15,8 @@ MonoBehaviour:
   speakerName: Demo
   speakerImage: {fileID: 21300000, guid: 2307a98a1a53b2e42985442e93787ede, type: 3}
   dialogueLines:
-  - Hello My Name is Demo
-  - I will innovate this game with my narrative
-  - What do you mean by self-centric?
-  - No, I am not at kind of person
-  - I an demo, a character of this class
+  - I used to be a developer like you
+  - Until I take Caffeine into my brain
+  - What do you think of the world?
+  - Can we really find a job we enjoy?
+  - I hope....we will meet again, eve

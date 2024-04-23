@@ -22,15 +22,25 @@ namespace ERMM.FrameworkTool.DialogueSystem
         // Start is called before the first frame update
         void Start()
         {
-            lines = new Queue<string>();
+            if (lines == null)
+            {
+                lines = new Queue<string>();
+            }
             continueButton.onClick.AddListener(DisplayNextLine);
         }
 
         public void StartDialogue(DialogueData dialogueData)
         {
             BeforeStartDialogue();
-
-            lines.Clear();
+            if (lines == null)
+            {
+                lines = new Queue<string>();
+            }
+            else
+            {
+                lines.Clear();
+            }
+            
             speakerNameText.text = dialogueData.speakerName;
             speakerImage.sprite = dialogueData.speakerImage;
 
