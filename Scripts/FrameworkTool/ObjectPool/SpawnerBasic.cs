@@ -6,7 +6,7 @@ namespace ERMM.FrameworkTool.ObjectPool
 {
     public class SpawnerBasic : MonoBehaviour
     {
-        private ObjectPoolBasic poolManager;
+        public ObjectPoolBasic poolManager;
 
         public KeyCode spawnKey = KeyCode.Space;
 
@@ -20,7 +20,8 @@ namespace ERMM.FrameworkTool.ObjectPool
 
         void Start()
         {
-            poolManager = FindObjectOfType<ObjectPoolBasic>(); // Find the ObjectPoolManager in the scene
+            if(poolManager == null)
+                poolManager = FindObjectOfType<ObjectPoolBasic>(); // Find the ObjectPoolManager in the scene
         }
 
         void Update()
